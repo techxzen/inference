@@ -1,4 +1,4 @@
 ### Introduction
-This is a small inference program, used Caffe.
+This is a small inference program, based on Caffe.
 
-Used to quickly do the inference of Deep Learning.
+It is used to quickly implement the inference process of Deep Learning network.

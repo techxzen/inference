@@ -8,4 +8,5 @@ g++  -o inference inference.cpp \
     -lboost_system \
     -lopencv_highgui \
     -lopencv_imgproc \
-    -lopencv_core
+    -lopencv_core \
+    -lglog

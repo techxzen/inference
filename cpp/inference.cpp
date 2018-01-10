@@ -46,10 +46,25 @@ int main(int argc, char **argv)
     int num_channels;
     int num_width;
     int num_height;
+    num_channels = input_blob->channels();
+    num_width = input_blob->width();
+    num_height = input_blob->height();
+    
+    input_blob->Reshape(1, num_channels, num_width, num_height);
+    net->Reshape();
+
+    
+
+    
+    float* input_data = input_blob->mutable_cpu_data();
+    for(int i = 0; i < num_channels; i++)
+    {
+    }
+    
 
     //read image file
     cv::Mat img = cv::imread(image_file, -1);
-
+    
     
 
     //get output blob

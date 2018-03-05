@@ -4,6 +4,7 @@
 
 import sys
 import caffe
+import cv2
 
 def main():
     model_name = sys.argv[1]
@@ -11,6 +12,8 @@ def main():
     image_name = sys.argv[3]
 
     net = caffe.Net(model_name, weight_name, caffe.TEST)
+
+    print('\n--------- net created ---------')
     
     img_cv      = cv2.imread(image_name)
     img_resized = cv2.resize(img_cv, (224, 224))
@@ -21,11 +24,12 @@ def main():
     net.forward()
 
     out = net.blobs['prob'].data
-
-    sortedOut = sorted(out.tolist(), reverse=True)
-
-    print(sortedOut[0])
-
+    
+    out1000 = enumerate(out[0])
+ 
+    sortedOut = sorted(out1000, key=lambda item:item[1], reverse=True)
+    print('biggest 5: ')
+    print(sortedOut[0:5])
 
 
 if __name__ == "__main__":

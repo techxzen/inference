@@ -1,9 +1,9 @@
 
 g++  -o inference inference.cpp \
-    -I $CAFFE_HOME/include/ \
+    -I $CAFFE_ROOT/include/ \
+    -I $CAFFE_ROOT/build/include/ \
     -D CPU_ONLY \
-    -I $CAFFE_HOME/.build_release/src/ \
-    -L $CAFFE_HOME/build/lib/ \
+    -L $CAFFE_ROOT/build/lib/ \
     -lcaffe \
     -lboost_system \
     -lopencv_highgui \
